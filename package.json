@@ -40,8 +40,8 @@
         "lint": "npx eslint ./src/**/*.ts"
     },
     "devDependencies": {
-        "@commitlint/cli": "8.0.0",
-        "@commitlint/config-conventional": "8.0.0",
+        "@commitlint/cli": "8.1.0",
+        "@commitlint/config-conventional": "8.1.0",
         "@flowscripter/eslint-config": "1.2.12",
         "@flowscripter/tsconfig": "1.1.2",
         "@types/debug": "4.1.4",
