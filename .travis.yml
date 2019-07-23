@@ -10,16 +10,13 @@ notifications:
     on_failure: always
     on_success: change
 stages:
-- name: test
-- name: analysis
+- name: check
 - name: release
   if: branch = master AND type != pull_request
 jobs:
   include:
-  - stage: test
-    script: npm test
-    name: test
-  - script: npm run lint
+  - stage: check
+    script: npm run lint
     name: lint
   - stage: release
     script: npm run build

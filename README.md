@@ -8,13 +8,39 @@
 
 ## Overview
 
+## Development
+
+Firstly: 
+
+```
+npm install
+```
+
+then:
+
+Build: `npm run build`
+
+Watch: `npm run watch`
+
+Test: `npm test`
+
+Lint: `npm run lint`
+
+## Run with Node
+
+Firstly run the host app and check no plugins are discovered:
+ 
+    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+
+## Further Details
+
 #### Configuration
 Explanation of project configuration files:
 
-* `.editorconfig` - Configures [EditorConfig](https://editorconfig.org) compliant editors
-* `.eslintrc.js` - TypeScript based [ESLint](https://eslint.org) configuration for the project derived from [@flowscripter/eslint-config](https://www.npmjs.com/package/@flowscripter/eslint-config)
-* `.gitignore` - Specifies files for git to [ignore](https://git-scm.com/docs/gitignore) 
-* `.huskyrc.js` - Provides git hooks using [Husky](https://github.com/typicode/husky) to enforce semantic commit messages, linting and unit testing.   
+* `.editorconfig` - Configures [EditorConfig](https://editorconfig.org) compliant editors.
+* `.eslintrc.js` - TypeScript based [ESLint](https://eslint.org) configuration for the project derived from [@flowscripter/eslint-config](https://www.npmjs.com/package/@flowscripter/eslint-config).
+* `.gitignore` - Specifies files for git to [ignore](https://git-scm.com/docs/gitignore).
+* `.huskyrc.js` - Provides git hooks using [Husky](https://github.com/typicode/husky) to enforce semantic commit messages and linting.   
 * `.travis.yml` - Defines the [Travis](https://travis-ci.com) build pipeline.
 * `commitlint.config.js` - Configures [commitlint](https://conventional-changelog.github.io/commitlint) to ensure commit messages can be used to drive automated [Semantic Version](https://semver.org) releases.
 * `package.js` - Defines development cycle scripts and configures publication of ES2015 modules. 
@@ -44,30 +70,6 @@ Because of this the modules are configured so that:
 #### Legacy Module Consumption
  
 Legacy CommonJS format npm packages are supported for internal consumption by `rollup-plugin-commonjs`
-
-## Development
-
-Firstly: 
-
-```
-npm install
-```
-
-then:
-
-Build: `npm run build`
-
-Watch: `npm run watch`
-
-Test: `npm test`
-
-Lint: `npm run lint`
-
-### Run with Node
-
-Firstly run the host app and check no plugins are discovered:
- 
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
 
 ## License
 
