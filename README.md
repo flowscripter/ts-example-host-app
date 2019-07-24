@@ -22,14 +22,25 @@ Build: `npm run build`
 
 Watch: `npm run watch`
 
-Test: `npm test`
-
 Lint: `npm run lint`
 
 ## Run with Node
 
 Firstly run the host app and check no plugins are discovered:
  
+    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+
+Then install a sample plugin providing one extension (without saving to `package.json`):
+
+    npm install --no-save @flowscripter/ts-example-plugin
+
+Now when you run the host app, you should see a plugin discovered:
+
+    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+
+Install another sample plugin providing two extension (without saving to `package.json`) and run again:
+
+    npm install --no-save @flowscripter/ts-example-plugin
     DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
 
 ## Further Details
