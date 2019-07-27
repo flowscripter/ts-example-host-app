@@ -38,7 +38,8 @@
         "build": "npx rollup -c && cp html/index.html dist/",
         "watch": "npx rollup -c --watch",
         "lint": "npx eslint ./src/**/*.ts",
-        "serve": "npx ws --open --directory dist"
+        "nodeHostApp": "DEBUG=*,-NodeModulesPluginRepository NODE_NO_WARNINGS=1 node --experimental-modules dist/nodeEntryPoint.js",
+        "browserHostApp": "npx ws --open --directory dist"
     },
     "devDependencies": {
         "@commitlint/cli": "8.1.0",
@@ -58,11 +59,8 @@
         "rollup-plugin-cleanup": "3.1.1",
         "rollup-plugin-commonjs": "10.0.1",
         "rollup-plugin-eslint": "7.0.0",
-        "rollup-plugin-json": "4.0.0",
         "rollup-plugin-node-builtins": "2.1.2",
-        "rollup-plugin-node-globals": "1.4.0",
         "rollup-plugin-node-resolve": "5.2.0",
-        "rollup-plugin-peer-deps-external": "2.2.0",
         "rollup-plugin-typescript2": "0.22.1",
         "rollup-watch": "4.3.1",
         "semantic-release": "15.13.18",

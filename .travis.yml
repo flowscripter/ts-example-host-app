@@ -19,10 +19,14 @@ jobs:
     script: npm run lint
     name: lint
   - stage: release
-    script: npm run build
+    script: npm run build && touch dist/.nojekyll
     deploy:
       - provider: script
         skip_cleanup: true
         script: npx semantic-release
+      - provider: pages
+        skip-cleanup: true
+        local-dir: "dist"
+        github-token: $GH_TOKEN
 cache:
   npm: true

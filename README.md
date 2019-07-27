@@ -28,7 +28,7 @@ Lint: `npm run lint`
 
 Firstly run the host app and check no plugins are discovered:
  
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+    npm run nodeHostApp
 
 Then install a sample plugin providing one extension (without saving to `package.json`):
 
@@ -36,14 +36,44 @@ Then install a sample plugin providing one extension (without saving to `package
 
 Now when you run the host app, you should see a plugin discovered:
 
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+    npm run nodeHostApp
 
 Install another sample plugin providing two extension (without saving to `package.json`) and run again:
 
     npm install --no-save @flowscripter/ts-example-plugin
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+    npm run nodeHostApp
 
+## Run with Browser
+
+To serve locally:
+
+    npm run browserHostApp
+
+Alternatively an online demo is available at:
+ 
+    https://flowscripter.github.io/ts-example-host-app/
+
+In the browser developer tools, enable debug logging to the console by setting the local storage key/value:
+
+    debug = *,-NodeModulesPluginRepository
+
+Without checking either listed plugin URL on the page and clicking on 'load', the browser console should show that no plugins are discovered.
+
+When checking one or both plugin URLs and clicking on 'load', you should see plugins discovered.
+ 
 ## Further Details
+
+#### Entry Points for Node and Browser
+
+The build config in `rollup.config.js` produces two bundled entry points:
+ 
+* `browserEntryPoint.js` - loaded by the browser host app web page
+* `nodeEntryPoint.js` is passed to node as the script to execute
+
+This ensures that dependencies for node specific modules can be shimmed via [rollup-plugin-node-builtins](https://github.com/calvinmetcalf/rollup-plugin-node-builtins)  
+
+Note that the sample plugins are also built in a similar way. To ensure the correct browser version is loaded from their
+hosted [unpkg.com](https://unpkg.com) locations, they are published to npm with a `browser` property in `package.json`.    
 
 #### Configuration
 Explanation of project configuration files:

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script type="module">
+        import browserEntryPoint from './browserEntryPoint.js';
+
+        async function load() {
+            const pluginACheckbox = document.getElementById('pluginACheckbox');
+            const pluginBCheckbox = document.getElementById('pluginBCheckbox');
+
+            const urls = [];
+
+            if (pluginACheckbox.checked) {
+                urls.push(pluginACheckbox.value);
+            }
+            if (pluginBCheckbox.checked) {
+                urls.push(pluginBCheckbox.value);
+            }
+            await browserEntryPoint(urls);
+        }
+
+        document.getElementById("loadButton").addEventListener("click", load, false);
+
+    </script>
+</head>
+<body>
+<h2>ts-example-host-app</h2>
+<p>
+    Example TypeScript host application for the <a href="https://github.com/flowscripter/esm-dynamic-plugins">esm-dynamic-plugins</a>
+    framework.
+</p>
+
+<form>
+    <input id="pluginACheckbox" type="checkbox" value="https://unpkg.com/@flowscripter/ts-example-plugin"/>https://unpkg.com/@flowscripter/ts-example-plugin
+    <br/>
+    <input id="pluginBCheckbox" type="checkbox" value="https://unpkg.com/@flowscripter/js-example-plugin"/>https://unpkg.com/@flowscripter/js-example-plugin
+    <br/>
+    <br/>
+    <input id="loadButton" type="button" value="load">
+</form>
+</body>
+</html>
+
