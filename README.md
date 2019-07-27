@@ -70,7 +70,8 @@ The build config in `rollup.config.js` produces two bundled entry points:
 * `browserEntryPoint.js` - loaded by the browser host app web page
 * `nodeEntryPoint.js` is passed to node as the script to execute
 
-This ensures that dependencies for node specific modules can be shimmed via [rollup-plugin-node-builtins](https://github.com/calvinmetcalf/rollup-plugin-node-builtins)  
+This ensures that dependencies for node specific modules can be shimmed via [rollup-plugin-node-builtins](https://github.com/calvinmetcalf/rollup-plugin-node-builtins)
+and [rollup-plugin-node-globals](https://github.com/calvinmetcalf/rollup-plugin-node-globals)   
 
 Note that the sample plugins are also built in a similar way. To ensure the correct browser version is loaded from their
 hosted [unpkg.com](https://unpkg.com) locations, they are published to npm with a `browser` property in `package.json`.    
@@ -111,6 +112,11 @@ Because of this the modules are configured so that:
 #### Legacy Module Consumption
  
 Legacy CommonJS format npm packages are supported for internal consumption by `rollup-plugin-commonjs`
+
+#### rollup-plugin-node-globals workaround
+
+Until [this PR](https://github.com/calvinmetcalf/rollup-plugin-node-globals/pull/15) is merged, the 
+`rollup-plugin-node-globals`dependency is sourced from https://github.com/vectronic/rollup-plugin-node-globals 
 
 ## License
 

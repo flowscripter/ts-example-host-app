@@ -3,6 +3,7 @@ import cleanup from 'rollup-plugin-cleanup';
 import commonjs from 'rollup-plugin-commonjs';
 import { eslint } from 'rollup-plugin-eslint';
 import resolve from 'rollup-plugin-node-resolve';
+import globals from 'rollup-plugin-node-globals';
 import typescript from 'rollup-plugin-typescript2';
 import ts from 'typescript';
 import tempDir from 'temp-dir';
@@ -73,6 +74,7 @@ module.exports = [
             }),
             commonjs(),
             builtins(),
+            globals(),
             resolve({
                 browser: true,
                 preferBuiltins: false
