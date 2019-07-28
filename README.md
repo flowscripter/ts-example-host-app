@@ -28,7 +28,7 @@ Lint: `npm run lint`
 
 Firstly run the host app and check no plugins are discovered:
  
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+    npm run nodeHostApp
 
 Then install a sample plugin providing one extension (without saving to `package.json`):
 
@@ -36,14 +36,45 @@ Then install a sample plugin providing one extension (without saving to `package
 
 Now when you run the host app, you should see a plugin discovered:
 
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+    npm run nodeHostApp
 
 Install another sample plugin providing two extension (without saving to `package.json`) and run again:
 
     npm install --no-save @flowscripter/ts-example-plugin
-    DEBUG=*,-NodeModulesPluginRepository node --experimental-modules dist/index.js
+    npm run nodeHostApp
 
+## Run with Browser
+
+To serve locally:
+
+    npm run browserHostApp
+
+Alternatively an online demo is available at:
+ 
+    https://flowscripter.github.io/ts-example-host-app/
+
+In the browser developer tools, enable debug logging to the console by setting the local storage key/value:
+
+    debug = *,-NodeModulesPluginRepository
+
+Without checking either listed plugin URL on the page and clicking on 'load', the browser console should show that no plugins are discovered.
+
+When checking one or both plugin URLs and clicking on 'load', you should see plugins discovered.
+ 
 ## Further Details
+
+#### Entry Points for Node and Browser
+
+The build config in `rollup.config.js` produces two bundled entry points:
+ 
+* `browserEntryPoint.js` - loaded by the browser host app web page
+* `nodeEntryPoint.js` is passed to node as the script to execute
+
+This ensures that dependencies for node specific modules can be shimmed via [rollup-plugin-node-builtins](https://github.com/calvinmetcalf/rollup-plugin-node-builtins)
+and [rollup-plugin-node-globals](https://github.com/calvinmetcalf/rollup-plugin-node-globals)   
+
+Note that the sample plugins are also built in a similar way. To ensure the correct browser version is loaded from their
+hosted [unpkg.com](https://unpkg.com) locations, they are published to npm with a `browser` property in `package.json`.    
 
 #### Configuration
 Explanation of project configuration files:
@@ -56,7 +87,7 @@ Explanation of project configuration files:
 * `commitlint.config.js` - Configures [commitlint](https://conventional-changelog.github.io/commitlint) to ensure commit messages can be used to drive automated [Semantic Version](https://semver.org) releases.
 * `package.js` - Defines development cycle scripts and configures publication of ES2015 modules. 
 * `release.config.js` - Configuration for automated semantic version releasing using [semantic-release](https://semantic-release.gitbook.io/semantic-release/)
-* `renovate.json` - Ensures automated dependency upgrade via [Renovate](https://renovatebot.com)
+* `renovate.json` - Ensures automated dependency upgrade via [Renovate](https://renovatebot.com) with configuration derived from [@flowscripter/renovate-config](https://www.npmjs.com/package/@flowscripter/renovate-config)
 * `rollup.config.js` - Defines the TypeScript and ES2015 module build pipeline for [Rollup](https://rollupjs.org/guide/en)
 * `tsconfig.json` - [TypeScript](https://www.typescriptlang.org) configuration for the project derived from [@flowscripter/tsconfig](https://www.npmjs.com/package/@flowscripter/tsconfig)
 
@@ -81,6 +112,11 @@ Because of this the modules are configured so that:
 #### Legacy Module Consumption
  
 Legacy CommonJS format npm packages are supported for internal consumption by `rollup-plugin-commonjs`
+
+#### rollup-plugin-node-globals workaround
+
+Until [this PR](https://github.com/calvinmetcalf/rollup-plugin-node-globals/pull/15) is merged, the 
+`rollup-plugin-node-globals`dependency is sourced from https://github.com/vectronic/rollup-plugin-node-globals 
 
 ## License
 

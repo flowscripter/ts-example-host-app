@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import Debug from 'debug';
 import { PluginManager } from '@flowscripter/esm-dynamic-plugins';
 import ExtensionPointA, { EXTENSION_POINT_A_ID } from './ExtensionPointA';
@@ -6,19 +5,7 @@ import ExtensionPointB, { EXTENSION_POINT_B_ID } from './ExtensionPointB';
 
 const log = Debug('index');
 
-(async (): Promise<void> => {
-
-    let runtime;
-
-    if (_.isUndefined(process)) {
-        log('Loading browser support');
-        runtime = await import('./browser');
-    } else {
-        log('Loading node suppport');
-        runtime = await import('./node');
-    }
-
-    const pluginManager: PluginManager<string> = runtime.default();
+export default async function commonApp(pluginManager: PluginManager<string>): Promise<void> {
 
     pluginManager.registerExtensionPoint(EXTENSION_POINT_A_ID);
     pluginManager.registerExtensionPoint(EXTENSION_POINT_B_ID);
@@ -52,4 +39,4 @@ const log = Debug('index');
 
         bExtension.sayGoodbye();
     });
-})();
+}
