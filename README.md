@@ -38,7 +38,7 @@ Now when you run the host app, you should see a plugin discovered:
 
     npm run nodeHostApp
 
-Install another sample plugin providing two extension (without saving to `package.json`) and run again:
+Install a different sample plugin providing two extension (without saving to `package.json`) and run again:
 
     npm install --no-save @flowscripter/ts-example-plugin
     npm run nodeHostApp
@@ -112,11 +112,6 @@ Because of this the modules are configured so that:
 #### Legacy Module Consumption
  
 Legacy CommonJS format npm packages are supported for internal consumption by `rollup-plugin-commonjs`
-
-#### rollup-plugin-node-globals workaround
-
-Until [this PR](https://github.com/calvinmetcalf/rollup-plugin-node-globals/pull/15) is merged, the 
-`rollup-plugin-node-globals`dependency is sourced from https://github.com/vectronic/rollup-plugin-node-globals 
 
 ## License
 
