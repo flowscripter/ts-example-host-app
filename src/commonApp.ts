@@ -26,6 +26,7 @@ export default async function commonApp(pluginManager: PluginManager<string>): P
 
     aExtensions.forEach(async (info): Promise<void> => {
         log(`Extension for Extension Point A has data: ${info.extensionData}`);
+        log(`Plugin for Extension Point A has data: ${info.pluginData}`);
 
         const aExtension: ExtensionPointA = await pluginManager.instantiate(info.extensionHandle, 'Host');
 
@@ -34,6 +35,7 @@ export default async function commonApp(pluginManager: PluginManager<string>): P
 
     bExtensions.forEach(async (info): Promise<void> => {
         log(`Extension for Extension Point B has data: ${info.extensionData}`);
+        log(`Plugin for Extension Point B has data: ${info.pluginData}`);
 
         const bExtension: ExtensionPointB = await pluginManager.instantiate(info.extensionHandle, 'Host');
 
