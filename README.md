@@ -24,7 +24,7 @@ Watch: `npm run watch`
 
 Lint: `npm run lint`
 
-## Run with Node
+## Run with Node (12.6.0+)
 
 Firstly run the host app and check no plugins are discovered:
  
@@ -40,7 +40,7 @@ Now when you run the host app, you should see a plugin discovered:
 
 Install a different sample plugin providing two extension (without saving to `package.json`) and run again:
 
-    npm install --no-save @flowscripter/ts-example-plugin
+    npm install --no-save @flowscripter/js-example-plugin
     npm run nodeHostApp
 
 ## Run with Browser
@@ -57,7 +57,7 @@ In the browser developer tools, enable debug logging to the console by setting t
 
     debug = *,-NodeModulesPluginRepository
 
-Without checking either listed plugin URL on the page and clicking on 'load', the browser console should show that no plugins are discovered.
+Without checking either plugin URL listed on the page, click on 'load' and the browser console should show that no plugins are discovered.
 
 When checking one or both plugin URLs and clicking on 'load', you should see plugins discovered.
  
