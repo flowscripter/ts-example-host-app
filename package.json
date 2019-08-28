@@ -65,7 +65,7 @@
         "rollup-watch": "4.3.1",
         "semantic-release": "15.13.24",
         "temp-dir": "2.0.0",
-        "typescript": "3.5.3"
+        "typescript": "3.6.2"
     },
     "dependencies": {
         "@flowscripter/esm-dynamic-plugins": "1.4.5",
