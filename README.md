@@ -51,9 +51,7 @@ To serve locally:
 
     npm run browserHostApp
 
-Alternatively an online demo is available at:
- 
-    https://flowscripter.github.io/ts-example-host-app/
+Alternatively an online demo is available at: https://flowscripter.github.io/ts-example-host-app/
 
 In the browser developer tools, enable debug logging to the console by setting the local storage key/value:
 
