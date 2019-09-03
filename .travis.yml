@@ -11,6 +11,7 @@ notifications:
     on_success: change
 stages:
 - name: check
+- name: e2e
 - name: release
   if: branch = master AND type != pull_request
 jobs:
@@ -18,6 +19,9 @@ jobs:
   - stage: check
     script: npm run lint
     name: lint
+  - stage: e2e
+    script: npm run e2e
+    name: e2e
   - stage: release
     script: npm run build && touch dist/.nojekyll
     deploy:

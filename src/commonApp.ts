@@ -17,28 +17,34 @@ export default async function commonApp(pluginManager: PluginManager<string>): P
     log(`Loaded ${count} new plugins providing extensions for Extension Point B`);
 
     const plugins = Array.from(pluginManager.getRegisteredPlugins());
-    const aExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_A_ID));
-    const bExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_B_ID));
 
     plugins.forEach((plugin): void => {
         log(`Plugin has data: ${plugin.pluginData}`);
     });
 
-    aExtensions.forEach(async (info): Promise<void> => {
+    const aExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_A_ID));
+    log(`Registered ${aExtensions.length} extensions for Extension Point A`);
+
+    for (const info of aExtensions) {
         log(`Extension for Extension Point A has data: ${info.extensionData}`);
         log(`Plugin for Extension Point A has data: ${info.pluginData}`);
 
+        // eslint-disable-next-line no-await-in-loop
         const aExtension: ExtensionPointA = await pluginManager.instantiate(info.extensionHandle, 'Host');
 
         aExtension.sayHello();
-    });
+    }
 
-    bExtensions.forEach(async (info): Promise<void> => {
+    const bExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_B_ID));
+    log(`Registered ${bExtensions.length} extensions for Extension Point B`);
+
+    for (const info of bExtensions) {
         log(`Extension for Extension Point B has data: ${info.extensionData}`);
         log(`Plugin for Extension Point B has data: ${info.pluginData}`);
 
+        // eslint-disable-next-line no-await-in-loop
         const bExtension: ExtensionPointB = await pluginManager.instantiate(info.extensionHandle, 'Host');
 
         bExtension.sayGoodbye();
-    });
+    }
 }
