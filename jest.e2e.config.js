@@ -4,11 +4,26 @@ module.exports = {
             displayName: 'cli',
             moduleFileExtensions: [
                 'js',
-                'ts'
+                'ts',
+                'json'
             ],
             testEnvironment: 'node',
             testMatch: [
                 '**/e2e/cli/**/?(*.)test.ts'
+            ],
+            transform: {
+                ts: 'ts-jest'
+            }
+        },
+        {
+            displayName: 'browser',
+            preset: 'jest-puppeteer',
+            moduleFileExtensions: [
+                'js',
+                'ts'
+            ],
+            testMatch: [
+                '**/e2e/browser/**/?(*.)test.ts'
             ],
             transform: {
                 ts: 'ts-jest'

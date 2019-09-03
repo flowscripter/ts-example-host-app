@@ -16,14 +16,17 @@ export default async function commonApp(pluginManager: PluginManager<string>): P
     count = await pluginManager.registerPluginsByExtensionPoint(EXTENSION_POINT_B_ID);
     log(`Loaded ${count} new plugins providing extensions for Extension Point B`);
 
+    const aExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_A_ID));
+    log(`Registered ${aExtensions.length} extensions for Extension Point A`);
+
+    const bExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_B_ID));
+    log(`Registered ${bExtensions.length} extensions for Extension Point B`);
+
     const plugins = Array.from(pluginManager.getRegisteredPlugins());
 
     plugins.forEach((plugin): void => {
         log(`Plugin has data: ${plugin.pluginData}`);
     });
-
-    const aExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_A_ID));
-    log(`Registered ${aExtensions.length} extensions for Extension Point A`);
 
     for (const info of aExtensions) {
         log(`Extension for Extension Point A has data: ${info.extensionData}`);
@@ -34,9 +37,6 @@ export default async function commonApp(pluginManager: PluginManager<string>): P
 
         aExtension.sayHello();
     }
-
-    const bExtensions = Array.from(pluginManager.getExtensions(EXTENSION_POINT_B_ID));
-    log(`Registered ${bExtensions.length} extensions for Extension Point B`);
 
     for (const info of bExtensions) {
         log(`Extension for Extension Point B has data: ${info.extensionData}`);
