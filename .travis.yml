@@ -20,7 +20,7 @@ jobs:
     script: npm run lint
     name: lint
   - stage: e2e
-    script: npm run e2e
+    script: npm run e2e -- --maxWorkers=4
     name: e2e
   - stage: release
     script: npm run build && touch dist/.nojekyll
