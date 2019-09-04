@@ -24,7 +24,7 @@ jobs:
     script: npm run build
     name: build
   - stage: e2e
-    script: npm run e2e -- --maxWorkers=4
+    script: npm run build && npm run e2e -- --maxWorkers=4
     name: e2e
   - stage: release
     script: npm run build && npm run e2e -- --maxWorkers=4 && touch dist/.nojekyll
