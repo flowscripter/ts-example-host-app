@@ -24,7 +24,9 @@ Watch: `npm run watch`
 
 Lint: `npm run lint`
 
-## Run with Node
+E2E test: `npm run e2e`
+
+## Run with Node (12.6.0+)
 
 Firstly run the host app and check no plugins are discovered:
  
@@ -40,7 +42,7 @@ Now when you run the host app, you should see a plugin discovered:
 
 Install a different sample plugin providing two extension (without saving to `package.json`) and run again:
 
-    npm install --no-save @flowscripter/ts-example-plugin
+    npm install --no-save @flowscripter/js-example-plugin
     npm run nodeHostApp
 
 ## Run with Browser
@@ -49,15 +51,13 @@ To serve locally:
 
     npm run browserHostApp
 
-Alternatively an online demo is available at:
- 
-    https://flowscripter.github.io/ts-example-host-app/
+Alternatively an online demo is available at: https://flowscripter.github.io/ts-example-host-app/
 
 In the browser developer tools, enable debug logging to the console by setting the local storage key/value:
 
     debug = *,-NodeModulesPluginRepository
 
-Without checking either listed plugin URL on the page and clicking on 'load', the browser console should show that no plugins are discovered.
+Without checking either plugin URL listed on the page, click on 'load' and the browser console should show that no plugins are discovered.
 
 When checking one or both plugin URLs and clicking on 'load', you should see plugins discovered.
  

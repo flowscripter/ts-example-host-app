@@ -1,5 +1,5 @@
 language: node_js
-node_js: '11'
+node_js: '12'
 branches:
   only:
   - master
@@ -11,6 +11,8 @@ notifications:
     on_success: change
 stages:
 - name: check
+- name: build
+- name: e2e
 - name: release
   if: branch = master AND type != pull_request
 jobs:
@@ -18,8 +20,14 @@ jobs:
   - stage: check
     script: npm run lint
     name: lint
+  - stage: build
+    script: npm run build
+    name: build
+  - stage: e2e
+    script: npm run build && npm run e2e -- --maxWorkers=4
+    name: e2e
   - stage: release
-    script: npm run build && touch dist/.nojekyll
+    script: npm run build && npm run e2e -- --maxWorkers=4 && touch dist/.nojekyll
     deploy:
       - provider: script
         skip_cleanup: true
