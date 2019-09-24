@@ -38,7 +38,7 @@
         "watch": "npx rollup -c --watch",
         "lint": "npx eslint ./src/**/*.ts",
         "e2e": "npx jest --config=jest.e2e.config.js",
-        "nodeHostApp": "DEBUG=*,-NodeModulesPluginRepository NODE_NO_WARNINGS=1 node --experimental-modules dist/nodeEntryPoint.js",
+        "nodeHostApp": "DEBUG=*,-NodeModulesPluginRepository NODE_NO_WARNINGS=1 node --experimental-modules dist/node.js",
         "browserHostApp": "npx ws --open --directory dist"
     },
     "devDependencies": {
