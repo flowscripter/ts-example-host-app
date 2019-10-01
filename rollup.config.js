@@ -10,7 +10,7 @@ import tempDir from 'temp-dir';
 module.exports = [
     {
         input: {
-            nodeEntryPoint: 'src/nodeEntryPoint.ts'
+            node: 'src/nodeEntryPoint.ts'
         },
         output: {
             dir: 'dist',
@@ -52,7 +52,7 @@ module.exports = [
     },
     {
         input: {
-            browserEntryPoint: 'src/browserEntryPoint.ts'
+            browser: 'src/browserEntryPoint.ts'
         },
         output: {
             dir: 'dist',
