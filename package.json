@@ -51,7 +51,7 @@
         "@types/expect-puppeteer": "3.3.2",
         "@types/fs-extra": "8.0.0",
         "@types/jest": "24.0.18",
-        "@types/lodash": "4.14.142",
+        "@types/lodash": "4.14.144",
         "@types/puppeteer": "1.20.1",
         "@typescript-eslint/eslint-plugin": "2.3.3",
         "@typescript-eslint/parser": "2.3.3",
@@ -77,7 +77,7 @@
         "semantic-release": "15.13.24",
         "temp-dir": "2.0.0",
         "ts-jest": "24.1.0",
-        "typescript": "3.6.3"
+        "typescript": "3.6.4"
     },
     "dependencies": {
         "@flowscripter/esm-dynamic-plugins": "1.4.15",
