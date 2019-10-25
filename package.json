@@ -55,7 +55,7 @@
         "@types/puppeteer": "1.20.2",
         "@typescript-eslint/eslint-plugin": "2.5.0",
         "@typescript-eslint/parser": "2.5.0",
-        "eslint": "6.5.1",
+        "eslint": "6.6.0",
         "eslint-plugin-import": "2.18.2",
         "eslint-plugin-jest": "22.20.0",
         "expect-puppeteer": "4.3.0",
