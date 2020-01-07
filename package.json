@@ -80,7 +80,7 @@
         "typescript": "3.7.4"
     },
     "dependencies": {
-        "@flowscripter/esm-dynamic-plugins": "1.4.20",
+        "@flowscripter/esm-dynamic-plugins": "1.4.21",
         "debug": "4.1.1",
         "lodash": "4.17.15"
     }
