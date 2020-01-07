@@ -40,9 +40,7 @@ module.exports = [
                 cacheRoot: `${tempDir}/.rpt2_cache`
             }),
             commonjs(),
-            resolve({
-                preferBuiltins: true
-            }),
+            resolve(),
             cleanup({
                 extensions: [
                     'ts'
