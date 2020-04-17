@@ -51,7 +51,7 @@
         "@types/expect-puppeteer": "4.4.1",
         "@types/fs-extra": "8.1.0",
         "@types/jest": "25.2.1",
-        "@types/lodash": "4.14.149",
+        "@types/lodash": "4.14.150",
         "@types/puppeteer": "2.0.1",
         "@typescript-eslint/eslint-plugin": "2.28.0",
         "@typescript-eslint/parser": "2.28.0",
