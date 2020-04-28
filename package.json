@@ -61,7 +61,7 @@
         "expect-puppeteer": "4.4.0",
         "fs-extra": "9.0.0",
         "husky": "4.2.5",
-        "jest": "25.4.0",
+        "jest": "25.5.0",
         "jest-puppeteer": "4.4.0",
         "local-web-server": "4.0.0",
         "nixt": "0.5.1",
