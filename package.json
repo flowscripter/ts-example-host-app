@@ -63,7 +63,7 @@
         "husky": "4.2.5",
         "jest": "26.0.1",
         "jest-puppeteer": "4.4.0",
-        "local-web-server": "4.0.0",
+        "local-web-server": "4.1.0",
         "nixt": "0.5.1",
         "puppeteer": "3.0.4",
         "rimraf": "3.0.2",
