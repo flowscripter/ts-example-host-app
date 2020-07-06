@@ -67,7 +67,7 @@
         "nixt": "0.5.1",
         "puppeteer": "4.0.1",
         "rimraf": "3.0.2",
-        "rollup": "2.19.0",
+        "rollup": "2.20.0",
         "rollup-plugin-cleanup": "3.1.1",
         "rollup-plugin-commonjs": "10.1.0",
         "rollup-plugin-eslint": "7.0.0",
