@@ -65,7 +65,7 @@
         "jest-puppeteer": "4.4.0",
         "local-web-server": "4.2.1",
         "nixt": "0.5.1",
-        "puppeteer": "4.0.1",
+        "puppeteer": "5.1.0",
         "rimraf": "3.0.2",
         "rollup": "2.21.0",
         "rollup-plugin-cleanup": "3.1.1",
