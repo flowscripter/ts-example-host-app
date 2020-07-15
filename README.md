@@ -10,7 +10,7 @@
 
 ## Development
 
-Firstly: 
+Firstly:
 
 ```
 npm install
@@ -26,10 +26,10 @@ Lint: `npm run lint`
 
 E2E test: `npm run e2e`
 
-## Run with Node (12.6.0+)
+## Run with Node (14.4.0+)
 
 Firstly run the host app and check no plugins are discovered:
- 
+
     npm run nodeHostApp
 
 Then install a sample plugin providing one extension (without saving to `package.json`):
@@ -63,7 +63,7 @@ When checking one or both plugin URLs and clicking on 'load', you should see plu
 
 ## Further Details
 
-Further details on project configuration files and Javascript version support can be found in 
+Further details on project configuration files and Javascript version support can be found in
 the [template for this project](https://github.com/flowscripter/ts-template/blob/master/README.md#overview).
 
 ## License
