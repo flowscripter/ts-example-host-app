@@ -30,14 +30,14 @@
     ],
     "types": "dist/types/index.d.ts",
     "engines": {
-        "node": "12.18.2"
+        "node": ">14.4.0"
     },
     "scripts": {
         "prebuild": "npx rimraf dist",
         "build": "npx rollup -c && cp html/index.html dist/",
         "watch": "npx rollup -c --watch",
         "lint": "npx eslint ./src/**/*.ts",
-        "e2e": "npx jest --config=jest.e2e.config.js",
+        "e2e": "npx jest --config=jest.e2e.config.json",
         "nodeHostApp": "DEBUG=*,-NodeModulesPluginRepository NODE_NO_WARNINGS=1 node --experimental-modules dist/node.js",
         "browserHostApp": "npx ws --open --directory dist"
     },
