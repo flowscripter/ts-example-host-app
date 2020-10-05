@@ -57,7 +57,7 @@
         "@typescript-eslint/parser": "4.4.0",
         "eslint": "7.10.0",
         "eslint-plugin-import": "2.22.1",
-        "eslint-plugin-jest": "24.0.2",
+        "eslint-plugin-jest": "24.1.0",
         "expect-puppeteer": "4.4.0",
         "fs-extra": "9.0.1",
         "husky": "4.3.0",
