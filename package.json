@@ -81,7 +81,7 @@
     },
     "dependencies": {
         "@flowscripter/esm-dynamic-plugins": "1.5.15",
-        "debug": "4.2.0",
+        "debug": "4.3.0",
         "lodash": "4.17.20"
     }
 }
